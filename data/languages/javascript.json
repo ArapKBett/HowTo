@@ -1,0 +1,40 @@
+{
+  "name": "JavaScript",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File (Node.js)",
+      "description": "Read a text file using the fs module.",
+      "code": "const fs = require('fs');\nfs.readFile('file.txt', 'utf8', (err, data) => {\n    if (err) throw err;\n    console.log(data);\n});",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an API Call",
+      "description": "Fetch data from an API using fetch.",
+      "code": "fetch('https://api.example.com/data')\n    .then(response => response.json())\n    .then(data => console.log(data))\n    .catch(error => console.error(error));",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort an Array",
+      "description": "Sort an array of numbers.",
+      "code": "const numbers = [5, 2, 8, 1, 9];\nnumbers.sort((a, b) => a - b);\nconsole.log(numbers);",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to MongoDB",
+      "description": "Query a MongoDB database using the MongoDB Node.js driver.",
+      "code": "const { MongoClient } = require('mongodb');\nasync function main() {\n    const uri = 'mongodb://localhost:27017';\n    const client = new MongoClient(uri);\n    await client.connect();\n    const db = client.db('mydb');\n    const collection = db.collection('users');\n    const data = await collection.find({}).toArray();\n    console.log(data);\n    await client.close();\n}\nmain();",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string.",
+      "code": "const text = 'Contact: user@example.com';\nconst regex = /\\b[\\w.-]+@[\\w.-]+\\.\\w+\\b/g;\nconst emails = text.match(regex);\nconsole.log(emails);",
+      "category": "Text Processing"
+    }
+  ]
+}
