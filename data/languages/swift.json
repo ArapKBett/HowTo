@@ -1,0 +1,40 @@
+{
+  "name": "Swift",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read a text file.",
+      "code": "import Foundation\n\ndo {\n    let content = try String(contentsOfFile: \"file.txt\", encoding: .utf8)\n    print(content)\n} catch {\n    print(\"Error: \\(error)\")\n}",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Fetch data from an API using URLSession.",
+      "code": "import Foundation\n\nlet url = URL(string: \"https://api.example.com/data\")!\nlet task = URLSession.shared.dataTask(with: url) { data, response, error in\n    if let error = error {\n        print(\"Error: \\(error)\")\n        return\n    }\n    if let data = data, let content = String(data: data, encoding: .utf8) {\n        print(content)\n    }\n}\ntask.resume()",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort an Array",
+      "description": "Sort an array of numbers.",
+      "code": "var numbers = [5, 2, 8, 1, 9]\nnumbers.sort()\nprint(numbers)",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to SQLite",
+      "description": "Query a SQLite database using SQLite.swift.",
+      "code": "import SQLite\n\ndo {\n    let db = try Connection(\"example.db\")\n    let users = Table(\"users\")\n    let name = Expression<String>(\"name\")\n    for user in try db.prepare(users) {\n        print(user[name])\n    }\n} catch {\n    print(\"Error: \\(error)\")\n}",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string.",
+      "code": "import Foundation\n\nlet text = \"Contact: user@example.com\"\nlet regex = try! NSRegularExpression(pattern: \"\\\\b[\\\\w.-]+@[\\\\w.-]+\\\\.\\\\w+\\\\b\")\nlet matches = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))\nfor match in matches {\n    let range = Range(match.range, in: text)!\n    print(text[range])\n}",
+      "category": "Text Processing"
+    }
+  ]
+}
