@@ -1,0 +1,40 @@
+{
+  "name": "Ruby",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read a text file.",
+      "code": "content = File.read('file.txt')\nputs content",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Fetch data from an API using Net::HTTP.",
+      "code": "require 'net/http'\nrequire 'json'\n\nuri = URI('https://api.example.com/data')\nresponse = Net::HTTP.get(uri)\ndata = JSON.parse(response)\nputs data",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort an Array",
+      "description": "Sort an array of numbers.",
+      "code": "numbers = [5, 2, 8, 1, 9]\nnumbers.sort!\nputs numbers",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to SQLite",
+      "description": "Query a SQLite database.",
+      "code": "require 'sqlite3'\n\ndb = SQLite3::Database.new('example.db')\ndb.execute('SELECT * FROM users') do |row|\n    puts row.join(', ')\nend\ndb.close",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string.",
+      "code": "text = 'Contact: user@example.com'\nemails = text.scan(/\\b[\\w.-]+@[\\w.-]+\\.\\w+\\b/)\nputs emails",
+      "category": "Text Processing"
+    }
+  ]
+}
