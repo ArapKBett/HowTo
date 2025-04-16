@@ -1,0 +1,40 @@
+{
+  "name": "PHP",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read a text file.",
+      "code": "<?php\n$content = file_get_contents('file.txt');\necho $content;\n?>",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Fetch data from an API using cURL.",
+      "code": "<?php\n$ch = curl_init();\ncurl_setopt($ch, CURLOPT_URL, 'https://api.example.com/data');\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);\n$response = curl_exec($ch);\ncurl_close($ch);\necho $response;\n?>",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort an Array",
+      "description": "Sort an array of numbers.",
+      "code": "<?php\n$numbers = [5, 2, 8, 1, 9];\nsort($numbers);\necho implode(' ', $numbers);\n?>",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to MySQL",
+      "description": "Query a MySQL database.",
+      "code": "<?php\n$conn = new mysqli('localhost', 'root', 'password', 'mydb');\nif ($conn->connect_error) {\n    die('Connection failed: ' . $conn->connect_error);\n}\n$result = $conn->query('SELECT * FROM users');\nwhile ($row = $result->fetch_assoc()) {\n    echo $row['name'] . '\\n';\n}\n$conn->close();\n?>",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string.",
+      "code": "<?php\n$text = 'Contact: user@example.com';\npreg_match_all('/\\b[\\w.-]+@[\\w.-]+\\.\\w+\\b/', $text, $matches);\necho implode('\\n', $matches[0]);\n?>",
+      "category": "Text Processing"
+    }
+  ]
+}
