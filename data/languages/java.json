@@ -1,0 +1,40 @@
+{
+  "name": "Java",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read a text file using BufferedReader.",
+      "code": "import java.io.BufferedReader;\nimport java.io.FileReader;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        BufferedReader reader = new BufferedReader(new FileReader(\"file.txt\"));\n        String line;\n        while ((line = reader.readLine()) != null) {\n            System.out.println(line);\n        }\n        reader.close();\n    }\n}",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Fetch data from an API using HttpURLConnection.",
+      "code": "import java.net.HttpURLConnection;\nimport java.net.URL;\nimport java.io.BufferedReader;\nimport java.io.InputStreamReader;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        URL url = new URL(\"https://api.example.com/data\");\n        HttpURLConnection conn = (HttpURLConnection) url.openConnection();\n        conn.setRequestMethod(\"GET\");\n        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));\n        String line;\n        while ((line = in.readLine()) != null) {\n            System.out.println(line);\n        }\n        in.close();\n    }\n}",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort an Array",
+      "description": "Sort an array of integers.",
+      "code": "import java.util.Arrays;\n\npublic class Main {\n    public static void main(String[] args) {\n        int[] numbers = {5, 2, 8, 1, 9};\n        Arrays.sort(numbers);\n        for (int num : numbers) {\n            System.out.print(num + \" \");\n        }\n    }\n}",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to a Database",
+      "description": "Query a MySQL database using JDBC.",
+      "code": "import java.sql.Connection;\nimport java.sql.DriverManager;\nimport java.sql.ResultSet;\nimport java.sql.Statement;\n\npublic class Main {\n    public static void main(String[] args) throws Exception {\n        String url = \"jdbc:mysql://localhost:3306/db\";\n        String user = \"root\";\n        String pass = \"password\";\n        Connection conn = DriverManager.getConnection(url, user, pass);\n        Statement stmt = conn.createStatement();\n        ResultSet rs = stmt.executeQuery(\"SELECT * FROM users\");\n        while (rs.next()) {\n            System.out.println(rs.getString(\"name\"));\n        }\n        conn.close();\n    }\n}",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string.",
+      "code": "import java.util.regex.Matcher;\nimport java.util.regex.Pattern;\n\npublic class Main {\n    public static void main(String[] args) {\n        String text = \"Contact: user@example.com\";\n        Pattern pattern = Pattern.compile(\"\\\\b[\\\\w.-]+@[\\\\w.-]+\\\\.\\\\w+\\\\b\");\n        Matcher matcher = pattern.matcher(text);\n        while (matcher.find()) {\n            System.out.println(matcher.group());\n        }\n    }\n}",
+      "category": "Text Processing"
+    }
+  ]
+}
