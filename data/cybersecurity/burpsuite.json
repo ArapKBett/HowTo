@@ -1,0 +1,40 @@
+{
+  "name": "Burp Suite",
+  "guides": [
+    {
+      "id": 1,
+      "title": "Intercept HTTP Requests",
+      "description": "Set up Burp Suite to intercept HTTP requests.",
+      "command": "Configure browser proxy to 127.0.0.1:8080 and enable Intercept in Burp Suite.",
+      "explanation": "Routes browser traffic through Burp Suite to inspect and modify HTTP requests."
+    },
+    {
+      "id": 2,
+      "title": "Spider a Website",
+      "description": "Crawl a website to map its structure.",
+      "command": "Add target to Site map, right-click, and select 'Spider this host'.",
+      "explanation": "Automatically discovers pages and resources on the target website."
+    },
+    {
+      "id": 3,
+      "title": "Perform a Vulnerability Scan",
+      "description": "Use Burp Scanner to identify vulnerabilities.",
+      "command": "Select target in Site map, go to Scanner tab, and start an active scan.",
+      "explanation": "Scans for common vulnerabilities like XSS or SQL injection."
+    },
+    {
+      "id": 4,
+      "title": "Replay Requests",
+      "description": "Resend HTTP requests to test modifications.",
+      "command": "In Proxy or History tab, select a request, and send to Repeater.",
+      "explanation": "Allows manual modification and resending of HTTP requests."
+    },
+    {
+      "id": 5,
+      "title": "Brute Force Login",
+      "description": "Use Intruder to brute force a login form.",
+      "command": "Capture login request, send to Intruder, set payload positions, and load a wordlist.",
+      "explanation": "Tests multiple username/password combinations against a login form."
+    }
+  ]
+}
