@@ -16,6 +16,9 @@ COPY . .
 # Verify directory structure for debugging
 RUN ls -R
 
+# Add src/ to PYTHONPATH to ensure module resolution
+ENV PYTHONPATH=/app:/app/src
+
 # Expose the port the app will run on
 EXPOSE 5000
 
