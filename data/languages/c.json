@@ -1,0 +1,40 @@
+{
+  "name": "C",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read the contents of a text file.",
+      "code": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"file.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file!\\n\");\n        return 1;\n    }\n    char buffer[256];\n    while (fgets(buffer, sizeof(buffer), file)) {\n        printf(\"%s\", buffer);\n    }\n    fclose(file);\n    return 0;\n}",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Use libcurl to fetch data from an API.",
+      "code": "#include <stdio.h>\n#include <curl/curl.h>\n\nsize_t write_callback(void *contents, size_t size, size_t nmemb, void *userp) {\n    printf(\"%.*s\", (int)(size * nmemb), (char *)contents);\n    return size * nmemb;\n}\n\nint main() {\n    CURL *curl = curl_easy_init();\n    if (curl) {\n        curl_easy_setopt(curl, CURLOPT_URL, \"https://api.example.com/data\");\n        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);\n        CURLcode res = curl_easy_perform(curl);\n        if (res != CURLE_OK) {\n            fprintf(stderr, \"curl_easy_perform() failed: %s\\n\", curl_easy_strerror(res));\n        }\n        curl_easy_cleanup(curl);\n    }\n    return 0;\n}",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort an Array",
+      "description": "Sort an array of integers using qsort.",
+      "code": "#include <stdio.h>\n#include <stdlib.h>\n\nint compare(const void *a, const void *b) {\n    return (*(int *)a - *(int *)b);\n}\n\nint main() {\n    int numbers[] = {5, 2, 8, 1, 9};\n    int n = sizeof(numbers) / sizeof(numbers[0]);\n    qsort(numbers, n, sizeof(int), compare);\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", numbers[i]);\n    }\n    return 0;\n}",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to SQLite",
+      "description": "Query a SQLite database.",
+      "code": "#include <stdio.h>\n#include <sqlite3.h>\n\nint callback(void *NotUsed, int argc, char **argv, char **azColName) {\n    for (int i = 0; i < argc; i++) {\n        printf(\"%s = %s\\n\", azColName[i], argv[i] ? argv[i] : \"NULL\");\n    }\n    printf(\"\\n\");\n    return 0;\n}\n\nint main() {\n    sqlite3 *db;\n    if (sqlite3_open(\"example.db\", &db)) {\n        fprintf(stderr, \"Can't open database: %s\\n\", sqlite3_errmsg(db));\n        return 1;\n    }\n    char *errMsg = 0;\n    if (sqlite3_exec(db, \"SELECT * FROM users\", callback, 0, &errMsg) != SQLITE_OK) {\n        fprintf(stderr, \"SQL error: %s\\n\", errMsg);\n        sqlite3_free(errMsg);\n    }\n    sqlite3_close(db);\n    return 0;\n}",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails using POSIX regex.",
+      "code": "#include <stdio.h>\n#include <regex.h>\n\nint main() {\n    const char *text = \"Contact: user@example.com\";\n    regex_t regex;\n    regcomp(&regex, \"\\\\b[\\\\w.-]+@[\\\\w.-]+\\\\.\\\\w+\\\\b\", REG_EXTENDED);\n    regmatch_t matches[1];\n    if (regexec(&regex, text, 1, matches, 0) == 0) {\n        int start = matches[0].rm_so;\n        int end = matches[0].rm_eo;\n        printf(\"%.*s\\n\", end - start, text + start);\n    }\n    regfree(&regex);\n    return 0;\n}",
+      "category": "Text Processing"
+    }
+  ]
+}
