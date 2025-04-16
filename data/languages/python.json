@@ -1,0 +1,40 @@
+{
+  "name": "Python",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read the contents of a text file.",
+      "code": "with open('file.txt', 'r') as file:\n    content = file.read()\nprint(content)",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an API Call",
+      "description": "Fetch data from an API using requests.",
+      "code": "import requests\nresponse = requests.get('https://api.example.com/data')\nprint(response.json())",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort a List",
+      "description": "Sort a list of numbers in ascending order.",
+      "code": "numbers = [5, 2, 8, 1, 9]\nnumbers.sort()\nprint(numbers)",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to a Database",
+      "description": "Connect to a SQLite database and query data.",
+      "code": "import sqlite3\nconn = sqlite3.connect('example.db')\nc = conn.cursor()\nc.execute('SELECT * FROM users')\nprint(c.fetchall())\nconn.close()",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string using regex.",
+      "code": "import re\ntext = 'Contact: user@example.com'\nemails = re.findall(r'\\b[\\w.-]+@[\\w.-]+\\.\\w+\\b', text)\nprint(emails)",
+      "category": "Text Processing"
+    }
+  ]
+}
