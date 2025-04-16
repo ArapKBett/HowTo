@@ -1,0 +1,40 @@
+{
+  "name": "Nmap",
+  "guides": [
+    {
+      "id": 1,
+      "title": "Basic Port Scan",
+      "description": "Scan open ports on a target host.",
+      "command": "nmap -sS -p 1-1000 192.168.1.1",
+      "explanation": "Uses SYN scan to check ports 1-1000 on the target IP."
+    },
+    {
+      "id": 2,
+      "title": "OS Detection",
+      "description": "Identify the operating system of a target.",
+      "command": "nmap -O 192.168.1.1",
+      "explanation": "Probes the target to determine its OS and version."
+    },
+    {
+      "id": 3,
+      "title": "Service Version Detection",
+      "description": "Detect versions of services running on open ports.",
+      "command": "nmap -sV 192.168.1.1",
+      "explanation": "Identifies service versions (e.g., Apache 2.4.7) on open ports."
+    },
+    {
+      "id": 4,
+      "title": "Aggressive Scan",
+      "description": "Perform a comprehensive scan including OS and service detection.",
+      "command": "nmap -A 192.168.1.1",
+      "explanation": "Combines OS detection, version detection, script scanning, and traceroute."
+    },
+    {
+      "id": 5,
+      "title": "Scan Multiple Hosts",
+      "description": "Scan a range of IP addresses.",
+      "command": "nmap 192.168.1.1-100",
+      "explanation": "Scans all hosts from 192.168.1.1 to 192.168.1.100."
+    }
+  ]
+}
