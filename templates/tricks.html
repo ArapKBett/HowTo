@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Tricks for {{ data.name }}{% endblock %}
+
+{% block content %}
+<h1>Tricks for {{ data.name }}</h1>
+{% for trick in data.tricks %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ trick.title }}</h5>
+        <p class="card-text"><strong>Category:</strong> {{ trick.category }}</p>
+        <p class="card-text">{{ trick.description }}</p>
+        <pre>{{ trick.code }}</pre>
+    </div>
+</div>
+{% endfor %}
+<a href="/languages" class="btn btn-secondary">Back to Languages</a>
+{% endblock %}
