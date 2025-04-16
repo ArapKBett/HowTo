@@ -1,0 +1,40 @@
+{
+  "name": "C#",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read a text file using StreamReader.",
+      "code": "using System;\nusing System.IO;\n\nclass Program {\n    static void Main() {\n        try {\n            using (StreamReader sr = new StreamReader(\"file.txt\")) {\n                string content = sr.ReadToEnd();\n                Console.WriteLine(content);\n            }\n        } catch (Exception e) {\n            Console.WriteLine(\"Error: \" + e.Message);\n        }\n    }\n}",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Fetch data from an API using HttpClient.",
+      "code": "using System;\nusing System.Net.Http;\nusing System.Threading.Tasks;\n\nclass Program {\n    static async Task Main() {\n        using (HttpClient client = new HttpClient()) {\n            try {\n                string response = await client.GetStringAsync(\"https://api.example.com/data\");\n                Console.WriteLine(response);\n            } catch (Exception e) {\n                Console.WriteLine(\"Error: \" + e.Message);\n            }\n        }\n    }\n}",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort a List",
+      "description": "Sort a list of integers.",
+      "code": "using System;\nusing System.Collections.Generic;\n\nclass Program {\n    static void Main() {\n        List<int> numbers = new List<int> {5, 2, 8, 1, 9};\n        numbers.Sort();\n        foreach (int num in numbers) {\n            Console.Write(num + \" \");\n        }\n    }\n}",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to SQL Server",
+      "description": "Query a SQL Server database.",
+      "code": "using System;\nusing System.Data.SqlClient;\n\nclass Program {\n    static void Main() {\n        string connString = \"Server=localhost;Database=mydb;User Id=sa;Password=password;\";\n        using (SqlConnection conn = new SqlConnection(connString)) {\n            try {\n                conn.Open();\n                SqlCommand cmd = new SqlCommand(\"SELECT * FROM users\", conn);\n                SqlDataReader reader = cmd.ExecuteReader();\n                while (reader.Read()) {\n                    Console.WriteLine(reader[\"name\"]);\n                }\n                reader.Close();\n            } catch (Exception e) {\n                Console.WriteLine(\"Error: \" + e.Message);\n            }\n        }\n    }\n}",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string.",
+      "code": "using System;\nusing System.Text.RegularExpressions;\n\nclass Program {\n    static void Main() {\n        string text = \"Contact: user@example.com\";\n        Regex regex = new Regex(@\"\\b[\\w.-]+@[\\w.-]+\\.\\w+\\b\");\n        MatchCollection matches = regex.Matches(text);\n        foreach (Match match in matches) {\n            Console.WriteLine(match.Value);\n        }\n    }\n}",
+      "category": "Text Processing"
+    }
+  ]
+}
