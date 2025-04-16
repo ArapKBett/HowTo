@@ -1,7 +1,7 @@
 import os
 import logging
 from flask import Flask, render_template, request
-from database import Database
+from .database import Database  # Changed to relative import
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
