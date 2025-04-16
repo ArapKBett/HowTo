@@ -1,0 +1,40 @@
+{
+  "name": "John the Ripper",
+  "guides": [
+    {
+      "id": 1,
+      "title": "Crack a Password Hash",
+      "description": "Crack a password hash using John the Ripper.",
+      "command": "john --format=raw-md5 hash.txt",
+      "explanation": "Attempts to crack MD5 hashes stored in hash.txt using default wordlists."
+    },
+    {
+      "id": 2,
+      "title": "Crack Linux Passwords",
+      "description": "Crack passwords from a Linux shadow file.",
+      "command": "john /etc/shadow",
+      "explanation": "Extracts and cracks password hashes from a Linux shadow file."
+    },
+    {
+      "id": 3,
+      "title": "Use a Custom Wordlist",
+      "description": "Crack hashes with a specific wordlist.",
+      "command": "john --wordlist=passwords.txt --format=raw-sha1 hash.txt",
+      "explanation": "Uses a custom wordlist to crack SHA1 hashes."
+    },
+    {
+      "id": 4,
+      "title": "Crack ZIP File Password",
+      "description": "Crack the password of a ZIP file.",
+      "command": "zip2john file.zip > hash.txt && john hash.txt",
+      "explanation": "Extracts the hash from a ZIP file and cracks it."
+    },
+    {
+      "id": 5,
+      "title": "Incremental Mode",
+      "description": "Use incremental mode for brute forcing.",
+      "command": "john --incremental --format=raw-md5 hash.txt",
+      "explanation": "Tries all possible character combinations to crack MD5 hashes."
+    }
+  ]
+}
