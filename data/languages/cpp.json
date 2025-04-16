@@ -1,0 +1,40 @@
+{
+  "name": "C++",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read a text file using ifstream.",
+      "code": "#include <iostream>\n#include <fstream>\n#include <string>\n\nint main() {\n    std::ifstream file(\"file.txt\");\n    if (file.is_open()) {\n        std::string line;\n        while (std::getline(file, line)) {\n            std::cout << line << std::endl;\n        }\n        file.close();\n    } else {\n        std::cout << \"Unable to open file\" << std::endl;\n    }\n    return 0;\n}",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Use libcurl to fetch data from an API.",
+      "code": "#include <iostream>\n#include <curl/curl.h>\n\nsize_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {\n    s->append((char*)contents, size * nmemb);\n    return size * nmemb;\n}\n\nint main() {\n    CURL* curl = curl_easy_init();\n    if (curl) {\n        std::string response;\n        curl_easy_setopt(curl, CURLOPT_URL, \"https://api.example.com/data\");\n        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);\n        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);\n        CURLcode res = curl_easy_perform(curl);\n        if (res == CURLE_OK) {\n            std::cout << response << std::endl;\n        }\n        curl_easy_cleanup(curl);\n    }\n    return 0;\n}",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort a Vector",
+      "description": "Sort a vector of integers.",
+      "code": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nint main() {\n    std::vector<int> numbers = {5, 2, 8, 1, 9};\n    std::sort(numbers.begin(), numbers.end());\n    for (int num : numbers) {\n        std::cout << num << \" \";\n    }\n    return 0;\n}",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to SQLite",
+      "description": "Query a SQLite database.",
+      "code": "#include <iostream>\n#include <sqlite3.h>\n\nint main() {\n    sqlite3* db;\n    if (sqlite3_open(\"example.db\", &db) == SQLITE_OK) {\n        sqlite3_stmt* stmt;\n        if (sqlite3_prepare_v2(db, \"SELECT * FROM users\", -1, &stmt, nullptr) == SQLITE_OK) {\n            while (sqlite3_step(stmt) == SQLITE_ROW) {\n                std::cout << sqlite3_column_text(stmt, 1) << std::endl;\n            }\n            sqlite3_finalize(stmt);\n        }\n        sqlite3_close(db);\n    } else {\n        std::cout << \"Cannot open database\" << std::endl;\n    }\n    return 0;\n}",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails using regex.",
+      "code": "#include <iostream>\n#include <regex>\n#include <string>\n\nint main() {\n    std::string text = \"Contact: user@example.com\";\n    std::regex email_regex(\"\\\\b[\\\\w.-]+@[\\\\w.-]+\\\\.\\\\w+\\\\b\");\n    std::sregex_iterator iter(text.begin(), text.end(), email_regex);\n    std::sregex_iterator end;\n    while (iter != end) {\n        std::cout << iter->str() << std::endl;\n        ++iter;\n    }\n    return 0;\n}",
+      "category": "Text Processing"
+    }
+  ]
+}
