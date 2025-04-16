@@ -1,0 +1,40 @@
+{
+  "name": "Wireshark",
+  "guides": [
+    {
+      "id": 1,
+      "title": "Capture HTTP Traffic",
+      "description": "Capture HTTP packets on a specific interface.",
+      "command": "wireshark -i eth0 -f \"tcp port 80\"",
+      "explanation": "Captures TCP traffic on port 80 (HTTP) on the eth0 interface."
+    },
+    {
+      "id": 2,
+      "title": "Filter DNS Queries",
+      "description": "Display only DNS traffic.",
+      "command": "wireshark -i eth0 -f \"udp port 53\"",
+      "explanation": "Captures UDP traffic on port 53 (DNS) on the eth0 interface."
+    },
+    {
+      "id": 3,
+      "title": "Save Captured Packets",
+      "description": "Save captured packets to a file.",
+      "command": "tshark -i eth0 -w capture.pcap",
+      "explanation": "Uses tshark (Wireshark's CLI) to save packets to capture.pcap."
+    },
+    {
+      "id": 4,
+      "title": "Analyze HTTPS Traffic",
+      "description": "Filter HTTPS traffic on a specific port.",
+      "command": "wireshark -i eth0 -f \"tcp port 443\"",
+      "explanation": "Captures TCP traffic on port 443 (HTTPS) on the eth0 interface."
+    },
+    {
+      "id": 5,
+      "title": "Display Packet Details",
+      "description": "View detailed packet information in Wireshark GUI.",
+      "command": "wireshark -r capture.pcap",
+      "explanation": "Opens a saved capture file in Wireshark for detailed analysis."
+    }
+  ]
+}
