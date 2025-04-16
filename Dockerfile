@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire project into the container
 COPY . .
 
+# Verify directory structure for debugging
+RUN ls -R
+
 # Expose the port the app will run on
 EXPOSE 5000
 
@@ -21,5 +24,5 @@ ENV FLASK_APP=src/app.py
 ENV FLASK_ENV=production
 ENV PORT=5000
 
-# Command to run the app with Gunicorn
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "src.app:app"]
+# Command to run the app with Gunicorn, with increased timeout and logging
+CMD ["gunicorn", "--timeout", "120", "--log-level", "debug", "-w", "4", "-b", "0.0.0.0:5000", "src.app:app"]
