@@ -1,0 +1,40 @@
+{
+  "name": "Go",
+  "tricks": [
+    {
+      "id": 1,
+      "title": "Read a File",
+      "description": "Read a text file using ioutil.",
+      "code": "package main\n\nimport (\n    \"fmt\"\n    \"io/ioutil\"\n)\n\nfunc main() {\n    data, err := ioutil.ReadFile(\"file.txt\")\n    if err != nil {\n        fmt.Println(\"Error:\", err)\n        return\n    }\n    fmt.Println(string(data))\n}",
+      "category": "File Handling"
+    },
+    {
+      "id": 2,
+      "title": "Make an HTTP Request",
+      "description": "Fetch data from an API using net/http.",
+      "code": "package main\n\nimport (\n    \"fmt\"\n    \"io/ioutil\"\n    \"net/http\"\n)\n\nfunc main() {\n    resp, err := http.Get(\"https://api.example.com/data\")\n    if err != nil {\n        fmt.Println(\"Error:\", err)\n        return\n    }\n    defer resp.Body.Close()\n    body, err := ioutil.ReadAll(resp.Body)\n    if err != nil {\n        fmt.Println(\"Error:\", err)\n        return\n    }\n    fmt.Println(string(body))\n}",
+      "category": "Networking"
+    },
+    {
+      "id": 3,
+      "title": "Sort a Slice",
+      "description": "Sort a slice of integers.",
+      "code": "package main\n\nimport (\n    \"fmt\"\n    \"sort\"\n)\n\nfunc main() {\n    numbers := []int{5, 2, 8, 1, 9}\n    sort.Ints(numbers)\n    fmt.Println(numbers)\n}",
+      "category": "Data Structures"
+    },
+    {
+      "id": 4,
+      "title": "Connect to PostgreSQL",
+      "description": "Query a PostgreSQL database.",
+      "code": "package main\n\nimport (\n    \"database/sql\"\n    \"fmt\"\n    _ \"github.com/lib/pq\"\n)\n\nfunc main() {\n    connStr := \"user=postgres password=password dbname=mydb sslmode=disable\"\n    db, err := sql.Open(\"postgres\", connStr)\n    if err != nil {\n        fmt.Println(\"Error:\", err)\n        return\n    }\n    defer db.Close()\n    rows, err := db.Query(\"SELECT name FROM users\")\n    if err != nil {\n        fmt.Println(\"Error:\", err)\n        return\n    }\n    defer rows.Close()\n    for rows.Next() {\n        var name string\n        rows.Scan(&name)\n        fmt.Println(name)\n    }\n}",
+      "category": "Database"
+    },
+    {
+      "id": 5,
+      "title": "Use Regular Expressions",
+      "description": "Extract emails from a string.",
+      "code": "package main\n\nimport (\n    \"fmt\"\n    \"regexp\"\n)\n\nfunc main() {\n    text := \"Contact: user@example.com\"\n    re := regexp.MustCompile(`\\b[\\w.-]+@[\\w.-]+\\.\\w+\\b`)\n    emails := re.FindAllString(text, -1)\n    for _, email := range emails {\n        fmt.Println(email)\n    }\n}",
+      "category": "Text Processing"
+    }
+  ]
+}
