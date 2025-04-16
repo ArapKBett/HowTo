@@ -21,5 +21,5 @@ ENV FLASK_APP=src/app.py
 ENV FLASK_ENV=production
 ENV PORT=5000
 
-# Run the app with Gunicorn
+# Command to run the app with Gunicorn
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "src.app:app"]
