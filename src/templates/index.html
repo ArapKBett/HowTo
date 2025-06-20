@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}HowTo Program - Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to Arap's HowTo Program</h1>
+<p>Explore practical "How To" tricks for major programming languages, learn to use essential cybersecurity tools, and discover pentesting strategies.</p>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Programming Languages</h2>
+        <p>Find concise code snippets for common tasks in languages like Python, C, Java, and more.</p>
+        <a href="/languages" class="btn btn-primary">Browse Languages</a>
+    </div>
+    <div class="col-md-4">
+        <h2>Cybersecurity Tools</h2>
+        <p>Learn to use tools like Nmap, Wireshark, and Metasploit with step-by-step guides.</p>
+        <a href="/tools" class="btn btn-primary">Browse Tools</a>
+    </div>
+    <div class="col-md-4">
+        <h2>Pentesting Strategies</h2>
+        <p>Master penetration testing with proven strategies for reconnaissance, exploitation, and more.</p>
+        <a href="/strategies" class="btn btn-primary">Browse Strategies</a>
+    </div>
+</div>
+{% endblock %}

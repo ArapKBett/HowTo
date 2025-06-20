@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Guide for {{ data.name }}{% endblock %}
+
+{% block content %}
+<h1>Guide for {{ data.name }}</h1>
+<p><strong>Warning:</strong> Use these tools ethically and only with permission on systems you own or are authorized to test.</p>
+{% for guide in data.guides %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ guide.title }}</h5>
+        <p class="card-text">{{ guide.description }}</p>
+        <p class="card-text"><strong>Command:</strong></p>
+        <pre>{{ guide.command }}</pre>
+        <p class="card-text"><strong>Explanation:</strong> {{ guide.explanation }}</p>
+    </div>
+</div>
+{% endfor %}
+<a href="/tools" class="btn btn-secondary">Back to Tools</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Pentesting Strategies{% endblock %}
+
+{% block content %}
+<h1>Pentesting Strategies</h1>
+<p><strong>Warning:</strong> Use these strategies ethically and only with permission on systems you own or are authorized to test.</p>
+{% for strategy in data.strategies %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">{{ strategy.title }}</h5>
+        <p class="card-text"><strong>Category:</strong> {{ strategy.category }}</p>
+        <p class="card-text">{{ strategy.description }}</p>
+        <p class="card-text"><strong>Steps:</strong></p>
+        <ul>
+            {% for step in strategy.steps %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endfor %}
+<a href="/strategies" class="btn btn-secondary">Back to Strategies</a>
+{% endblock %}

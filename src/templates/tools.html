@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Cybersecurity Tools{% endblock %}
+
+{% block content %}
+<h1>Cybersecurity Tools</h1>
+<p>Select a tool to view its usage guide.</p>
+<ul class="list-group">
+    {% for tool in tools %}
+    <li class="list-group-item">
+        <a href="/guide/{{ tool }}">{{ tool.capitalize() }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

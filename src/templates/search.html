@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<h1>Search Results for "{{ query }}"</h1>
+{% if results.tricks or results.guides or results.strategies %}
+    {% if results.tricks %}
+    <h2>Programming Tricks</h2>
+    {% for trick in results.tricks %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ trick.title }} ({{ trick.language }})</h5>
+            <p class="card-text"><strong>Category:</strong> {{ trick.category }}</p>
+            <p class="card-text">{{ trick.description }}</p>
+            <pre>{{ trick.code }}</pre>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% if results.guides %}
+    <h2>Cybersecurity Guides</h2>
+    {% for guide in results.guides %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ guide.title }} ({{ guide.tool }})</h5>
+            <p class="card-text">{{ guide.description }}</p>
+            <p class="card-text"><strong>Command:</strong></p>
+            <pre>{{ guide.command }}</pre>
+            <p class="card-text"><strong>Explanation:</strong> {{ guide.explanation }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% if results.strategies %}
+    <h2>Pentesting Strategies</h2>
+    {% for strategy in results.strategies %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ strategy.title }}</h5>
+            <p class="card-text"><strong>Category:</strong> {{ strategy.category }}</p>
+            <p class="card-text">{{ strategy.description }}</p>
+            <p class="card-text"><strong>Steps:</strong></p>
+            <ul>
+                {% for step in strategy.steps %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+{% else %}
+    <p>No results found for "{{ query }}".</p>
+{% endif %}
+<a href="/" class="btn btn-secondary">Back to Home</a>
+{% endblock %}
